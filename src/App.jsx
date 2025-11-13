@@ -14,7 +14,7 @@ const App = () => {
         <div className="p-4 bg-gray-700 rounded-lg shadow text-sm w-full sm:w-[300px]">
           <img
             className="rounded-md max-h-40 w-full object-cover"
-            src="../src/Images/Burger.jpg"
+            src={Burger}
             alt="Burger"
           />
           <h1 className="text-white text-xl font-semibold mt-2">Burger King</h1>
@@ -34,7 +34,8 @@ const App = () => {
         <div className="p-4 bg-gray-700 rounded-lg shadow text-sm w-full sm:w-[300px]">
           <img
             className="rounded-md max-h-40 w-full object-cover"
-            src="../src/Images/Pizza.jpg"
+            src={Pizza}
+            alt="Pizza"
           />
           <h1 className="text-white text-xl font-semibold mt-2">Pizza Burg</h1>
           <p className="text-white mt-3 text-justify">
@@ -53,7 +54,8 @@ const App = () => {
         <div className="p-4 bg-gray-700 rounded-lg shadow text-sm w-full sm:w-[300px]">
           <img
             className="rounded-md max-h-40 w-full object-cover"
-            src="/src/Images/Sandwich.jpg"
+            src={Sandwich}
+            alt="Sandwich"
           />
           <h1 className="text-white text-xl font-semibold mt-2">
             Sandwich
