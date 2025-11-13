@@ -1,4 +1,8 @@
 import React from "react";
+import Burger from "../src/Images/Burger.jpg";
+import Pizza from "../src/Images/Pizza.jpg";
+import Sandwich from "../src/Images/Sandwich.jpg";
+
 
 const App = () => {
   return (
@@ -31,7 +35,6 @@ const App = () => {
           <img
             className="rounded-md max-h-40 w-full object-cover"
             src="../src/Images/Pizza.jpg"
-            alt="Office"
           />
           <h1 className="text-white text-xl font-semibold mt-2">Pizza Burg</h1>
           <p className="text-white mt-3 text-justify">
@@ -51,7 +54,6 @@ const App = () => {
           <img
             className="rounded-md max-h-40 w-full object-cover"
             src="/src/Images/Sandwich.jpg"
-            alt="Office"
           />
           <h1 className="text-white text-xl font-semibold mt-2">
             Sandwich
