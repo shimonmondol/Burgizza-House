@@ -12,12 +12,20 @@
   "dependencies": {
     "@coreui/coreui": "^5.4.0",
     "@coreui/react": "^5.7.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@heroui/button": "^2.2.27",
+    "@heroui/system": "^2.4.23",
+    "@heroui/theme": "^2.4.23",
+    "@mui/material": "^7.3.5",
     "@tailwindcss/vite": "^4.1.10",
     "bootstrap": "^5.3.7",
+    "flowbite": "^4.0.1",
+    "flowbite-react": "^0.12.10",
     "react": "^19.1.0",
     "react-bootstrap": "^2.10.10",
     "react-dom": "^19.1.0",
-    "react-router": "^7.6.2"
+    "react-router": "^7.9.6"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
