@@ -8,6 +8,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [userName, setUserName] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   // Track logged-in user
@@ -25,6 +26,7 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     try {
       const userCredential = await signInWithEmailAndPassword(
@@ -50,6 +52,8 @@ const Login = () => {
       } else {
         toast.error("Login failed. Try again.", { position: "top-center" });
       }
+    } finally {
+      setLoading(false); // ✅ Always stop loading
     }
   };
 
@@ -113,11 +117,11 @@ const Login = () => {
 
                   <button
                     type="submit"
-                    className="w-full cursor-pointer text-white bg-primary-600 hover:bg-primary-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                    disabled={loading}
+                    className="w-full text-white bg-black cursor-pointer font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 disabled:opacity-50"
                   >
-                    Login
+                    {loading ? "Logging in" : "Login"}
                   </button>
-
                   <p className="text-sm font-medium text-gray-900">
                     Don’t have an account yet?{" "}
                     <Link to="/signup" className="font-medium text-primary-500">

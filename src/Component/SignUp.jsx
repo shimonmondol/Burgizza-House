@@ -10,10 +10,12 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [fname, setFname] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSignup = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const userCredential = await createUserWithEmailAndPassword(
         auth,
@@ -41,6 +43,8 @@ const SignUp = () => {
           position: "top-center",
         });
       }
+    } finally {
+      setLoading(false); // ✅ Always stop loading
     }
   };
 
@@ -115,11 +119,12 @@ const SignUp = () => {
                   />
                 </div>
                 <button
-                  type="submit"
-                  className="w-full cursor-pointer text-white bg-primary-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-                >
-                  Create an account
-                </button>
+                    type="submit"
+                    disabled={loading}
+                    className="w-full text-white bg-black cursor-pointer font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 disabled:opacity-50"
+                  >
+                    {loading ? "Signing Up" : "Sign Up"}
+                  </button>
                 <p className="text-gray-900 font-medium">
                   Already have an account?{" "}
                   <Link to="/login" className="font-medium text-primary-500">

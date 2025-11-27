@@ -47,7 +47,6 @@ const Navbar = () => {
               Footer
             </Link>
           </div>
-
           <div className="md:order-2 relative">
             {userName ? (
               <div
