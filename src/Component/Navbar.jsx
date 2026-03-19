@@ -29,7 +29,7 @@ const Navbar = () => {
   return (
     <div>
       <nav className="bg-green-700 fixed w-full top-0 z-50">
-        <div className="lg:w-[980px] flex flex-wrap items-center justify-between mx-auto p-4">
+        <div className="lg:w-[1060px] flex flex-wrap items-center justify-between mx-auto p-4">
           <div className="flex items-center text-white text-xl font-semibold">
             Burgizza House
           </div>
@@ -37,14 +37,14 @@ const Navbar = () => {
             <Link className="hover:text-rose-500" to="/">
               Home
             </Link>
-            <Link className="hover:text-rose-500" to="/about">
-              About
+            <Link className="hover:text-rose-500" to="/product ">
+              Product 
+            </Link>
+            <Link className="hover:text-rose-500" to="/service">
+              Service
             </Link>
             <Link className="hover:text-rose-500" to="/contact">
               Contact
-            </Link>
-            <Link className="hover:text-rose-500" to="/footer">
-              Footer
             </Link>
           </div>
           <div className="md:order-2 relative">
