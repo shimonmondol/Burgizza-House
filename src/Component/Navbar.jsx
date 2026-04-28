@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router";
 import { auth } from "../firebase/firebase";
 import { signOut } from "firebase/auth";
+import logo from "../Images/Logo.jpg";
 
 const Navbar = () => {
   const [userName, setUserName] = useState("");
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [menuopen, setMenuopen] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -28,20 +29,21 @@ const Navbar = () => {
 
   return (
     <div>
-      <nav className="bg-green-700 fixed w-full top-0 z-50">
+      <nav className="fixed bg-amber-100 w-full top-0">
         <div className="lg:w-[1060px] flex flex-wrap items-center justify-between mx-auto p-4">
-          <div className="flex items-center text-white text-xl font-semibold">
-            Burgizza House
-          </div>
-          <div className="grid grid-flow-col gap-8 font-semibold text-white">
+          <Link to="/" className="flex items-center text-white text-xl font-semibold">
+            <img className="w-5 h-5 rounded-xs" src={logo} alt="" />
+            <h1 className="ml-2 text-black">Burgizza House</h1>
+          </Link>
+          <div className="grid grid-flow-col gap-8 font-semibold text-black">
             <Link className="hover:text-rose-500" to="/">
               Home
             </Link>
-            <Link className="hover:text-rose-500" to="/product ">
-              Product 
+            <Link className="hover:text-rose-500" to="/about">
+              About
             </Link>
-            <Link className="hover:text-rose-500" to="/service">
-              Service
+            <Link className="hover:text-rose-500" to="/product ">
+              Product
             </Link>
             <Link className="hover:text-rose-500" to="/contact">
               Contact
@@ -55,7 +57,7 @@ const Navbar = () => {
                 onMouseLeave={() => setDropdownOpen(false)}
               >
                 {userName}
-                {dropdownOpen && (
+                {menuopen && (
                   <div className="absolute ml-[14px] mt-2 bg-white text-black rounded">
                     <button
                       onClick={handleLogout}
