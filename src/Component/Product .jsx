@@ -13,7 +13,7 @@ const Product = () => {
   }, []);
 
   return (
-    <div className="flex flex-wrap justify-around">
+    <div className="flex flex-wrap justify-around mt-20">
       {allproduct.map((item) => (
         <div className="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-96">
           <div className="relative p-2.5 h-96 overflow-hidden rounded-xl bg-clip-border">

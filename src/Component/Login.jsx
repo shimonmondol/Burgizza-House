@@ -32,7 +32,7 @@ const Login = () => {
       const userCredential = await signInWithEmailAndPassword(
         auth,
         email,
-        password
+        password,
       );
 
       toast.success("Login Successfully", {
@@ -60,76 +60,76 @@ const Login = () => {
   return (
     <>
       <ToastContainer />
-      <section className="bg-sky-100">
-        <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+      <section className="min-h-screen bg-teal-900 flex items-center justify-center px-4 py-8">
+        <div className="w-full max-w-md">
           <Link
             to="/"
-            className="flex items-center mb-6 text-2xl font-semibold text-black"
+            className="block text-center mb-6 text-2xl sm:text-3xl font-semibold text-white"
           >
             Burgizza-House
           </Link>
 
-          <div className="w-full lg:w-1/4 bg-white rounded-lg md:mt-0 sm:max-w-md xl:p-0">
-            <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-              <>
-                <h1 className="text-xl font-bold leading-tight tracking-tight text-black md:text-2xl">
-                  Sign in to your account
-                </h1>
+          <div className="w-full bg-white rounded-xl shadow-lg">
+            <div className="p-5 sm:p-8 space-y-5">
+              <h1 className="text-xl sm:text-2xl font-bold text-black">
+                Sign in to your account
+              </h1>
 
-                <form onSubmit={handleLogin} className="space-y-4 md:space-y-6">
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="block mb-2 text-sm font-medium text-gray-900"
-                    >
-                      Your Email
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      id="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      className="bg-gray-50 border border-gray-300 rounded-lg focus:outline-none w-full p-2.5"
-                      placeholder="Name@gmail.com"
-                      required
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="password"
-                      className="block mb-2 text-sm font-medium text-gray-900"
-                    >
-                      Password
-                    </label>
-                    <input
-                      type="password"
-                      name="password"
-                      id="password"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      placeholder="••••••••"
-                      className="bg-gray-50 border border-gray-300 rounded-lg focus:outline-none w-full p-2.5"
-                      required
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    className="w-full text-white bg-black cursor-pointer font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 disabled:opacity-50"
+              <form onSubmit={handleLogin} className="space-y-4">
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="block mb-2 text-sm font-medium text-gray-900"
                   >
-                    {loading ? "Logging in" : "Login"}
-                  </button>
-                  <p className="text-sm font-medium text-gray-900">
-                    Don’t have an account yet?{" "}
-                    <Link to="/signup" className="font-medium text-primary-500">
-                      Sign Up
-                    </Link>
-                  </p>
-                </form>
-              </>
+                    Your Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="w-full bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-700 p-2.5"
+                    placeholder="Name@gmail.com"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="password"
+                    className="block mb-2 text-sm font-medium text-gray-900"
+                  >
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    id="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="••••••••"
+                    className="w-full bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-700 p-2.5"
+                    required
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full text-white bg-black hover:bg-gray-800 cursor-pointer font-medium rounded-lg text-sm px-5 py-3 text-center disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {loading ? "Logging in..." : "Login"}
+                </button>
+
+                <p className="text-sm sm:text-base font-medium text-gray-900 text-center">
+                  Don’t have an account yet?{" "}
+                  <Link
+                    to="/signup"
+                    className="font-medium text-teal-700 hover:text-red-600"
+                  >
+                    Sign Up
+                  </Link>
+                </p>
+              </form>
             </div>
           </div>
         </div>

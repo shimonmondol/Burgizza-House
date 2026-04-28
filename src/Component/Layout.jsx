@@ -3,13 +3,12 @@ import Navbar from "./Navbar";
 import { Outlet } from "react-router";
 import Footer from "./Footer";
 
-
 const Layout = () => {
   return (
-    <div className="pt-20">
+    <div>
       <Navbar />
       <Outlet />
-      <Footer/>
+      <Footer />
     </div>
   );
 };

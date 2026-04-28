@@ -6,7 +6,7 @@ const About = () => {
   return (
     <div>
       <div>
-        <div className="w-[1000px] mx-auto lg:px-0">
+        <div className="w-[1000px] mx-auto lg:px-0 mt-24 mb-12">
           {/* Responsive Card Grid */}
           <div className="flex flex-wrap gap-10">
             {/* Card 1 */}

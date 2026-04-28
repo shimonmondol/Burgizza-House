@@ -20,7 +20,7 @@ const SignUp = () => {
       const userCredential = await createUserWithEmailAndPassword(
         auth,
         email,
-        password
+        password,
       );
 
       // Update displayName
@@ -51,21 +51,19 @@ const SignUp = () => {
   return (
     <>
       <ToastContainer />
-      <section className="bg-sky-100">
-        <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-          <div className="flex items-center mb-6 text-2xl font-semibold text-black">
+      <section className="min-h-screen bg-teal-900 flex items-center justify-center px-4 py-8">
+        <div className="w-full max-w-md">
+          <div className="text-center mb-6 text-2xl sm:text-3xl font-semibold text-white">
             Burgizza-House
           </div>
-          <div className="w-full lg:w-1/4 sm:max-w-md bg-white rounded-lg md:mt-0 xl:p-0">
-            <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-              <h1 className="text-xl font-bold leading-tight tracking-tight text-black md:text-2xl">
+
+          <div className="w-full bg-white rounded-xl shadow-lg">
+            <div className="p-5 sm:p-8 space-y-5">
+              <h1 className="text-xl sm:text-2xl font-bold text-black">
                 Create an account
               </h1>
-              <form
-                onSubmit={handleSignup}
-                className="space-y-4 md:space-y-6"
-                action="#"
-              >
+
+              <form onSubmit={handleSignup} className="space-y-4">
                 <div>
                   <label
                     htmlFor="name"
@@ -76,13 +74,13 @@ const SignUp = () => {
                   <input
                     onChange={(e) => setFname(e.target.value)}
                     type="text"
-                    name="name"
                     id="name"
-                    className="bg-gray-50 border border-gray-300 rounded-lg focus:outline-none w-full p-2.5 "
+                    className="w-full bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-700 p-2.5"
                     placeholder="Shimon Mondol"
-                    required=""
+                    required
                   />
                 </div>
+
                 <div>
                   <label
                     htmlFor="email"
@@ -93,14 +91,14 @@ const SignUp = () => {
                   <input
                     onChange={(e) => setEmail(e.target.value)}
                     type="email"
-                    name="email"
                     id="email"
                     value={email}
-                    className="bg-gray-50 border border-gray-300 rounded-lg focus:outline-none w-full p-2.5 "
+                    className="w-full bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-700 p-2.5"
                     placeholder="Name@gmail.com"
-                    required=""
+                    required
                   />
                 </div>
+
                 <div>
                   <label
                     htmlFor="password"
@@ -111,23 +109,27 @@ const SignUp = () => {
                   <input
                     onChange={(e) => setPassword(e.target.value)}
                     type="password"
-                    name="password"
                     id="password"
                     placeholder="••••••••"
-                    className="bg-gray-50 border border-gray-300 rounded-lg focus:outline-none w-full p-2.5 "
-                    required=""
+                    className="w-full bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-700 p-2.5"
+                    required
                   />
                 </div>
+
                 <button
-                    type="submit"
-                    disabled={loading}
-                    className="w-full text-white bg-black cursor-pointer font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 disabled:opacity-50"
-                  >
-                    {loading ? "Signing Up" : "Sign Up"}
-                  </button>
-                <p className="text-gray-900 font-medium">
+                  type="submit"
+                  disabled={loading}
+                  className="w-full text-white bg-black hover:bg-gray-800 cursor-pointer font-medium rounded-lg text-sm px-5 py-3 text-center disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {loading ? "Signing Up..." : "Sign Up"}
+                </button>
+
+                <p className="text-gray-900 font-medium text-sm sm:text-base text-center">
                   Already have an account?{" "}
-                  <Link to="/login" className="font-medium text-primary-500">
+                  <Link
+                    to="/login"
+                    className="font-medium text-teal-700 hover:text-red-600"
+                  >
                     Login
                   </Link>
                 </p>
