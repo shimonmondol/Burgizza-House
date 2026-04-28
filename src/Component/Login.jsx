@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router"; // ✅ use react-router-dom
-import { signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { Link, useNavigate } from "react-router";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase/firebase";
 import { ToastContainer, toast } from "react-toastify";
+import LoginImage from "../Images/Login.jpg";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -11,14 +12,9 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  // Track logged-in user
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
-      if (user) {
-        setUserName(user.displayName || "User");
-      } else {
-        setUserName("");
-      }
+      setUserName(user ? user.displayName || "User" : "");
     });
 
     return () => unsubscribe();
@@ -29,49 +25,57 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const userCredential = await signInWithEmailAndPassword(
-        auth,
-        email,
-        password,
-      );
+      await signInWithEmailAndPassword(auth, email, password);
 
       toast.success("Login Successfully", {
         position: "top-center",
-        autoClose: 3000,
+        autoClose: 2000,
         onClose: () => navigate("/"),
       });
     } catch (error) {
-      if (error.code === "auth/user-not-found") {
-        toast.error("Login failed. Try again.", { position: "top-center" });
-      } else if (error.code === "auth/wrong-password") {
+      if (error.code === "auth/wrong-password") {
         toast.error("Incorrect password. Try again.", {
           position: "top-center",
         });
       } else if (error.code === "auth/invalid-email") {
-        toast.error("Invalid email format.", { position: "top-center" });
+        toast.error("Invalid email format.", {
+          position: "top-center",
+        });
+      } else if (error.code === "auth/invalid-credential") {
+        toast.error("Invalid email or password.", {
+          position: "top-center",
+        });
       } else {
-        toast.error("Login failed. Try again.", { position: "top-center" });
+        toast.error("Login failed. Try again.", {
+          position: "top-center",
+        });
       }
     } finally {
-      setLoading(false); // ✅ Always stop loading
+      setLoading(false);
     }
   };
 
   return (
     <>
       <ToastContainer />
-      <section className="min-h-screen bg-teal-900 flex items-center justify-center px-4 py-8">
-        <div className="w-full max-w-md">
+      <section
+        className="relative min-h-screen flex items-center justify-center px-4 py-8 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${LoginImage})` }}
+      >
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/30"></div>
+        {/* Login Content */}
+        <div className="relative z-10 w-full max-w-md">
           <Link
             to="/"
-            className="block text-center mb-6 text-2xl sm:text-3xl font-semibold text-white"
+            className="block text-center mb-6 text-2xl sm:text-3xl font-bold text-white"
           >
             Burgizza-House
           </Link>
 
-          <div className="w-full bg-white rounded-xl shadow-lg">
+          <div className="w-full bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl">
             <div className="p-5 sm:p-8 space-y-5">
-              <h1 className="text-xl sm:text-2xl font-bold text-black">
+              <h1 className="text-xl sm:text-2xl font-bold text-black text-center">
                 Sign in to your account
               </h1>
 
@@ -83,6 +87,7 @@ const Login = () => {
                   >
                     Your Email
                   </label>
+
                   <input
                     type="email"
                     id="email"
@@ -101,6 +106,7 @@ const Login = () => {
                   >
                     Password
                   </label>
+
                   <input
                     type="password"
                     id="password"
@@ -115,7 +121,7 @@ const Login = () => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full text-white bg-black hover:bg-gray-800 cursor-pointer font-medium rounded-lg text-sm px-5 py-3 text-center disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full text-white bg-black hover:bg-gray-800 cursor-pointer font-medium rounded-lg text-sm px-5 py-3 text-center disabled:opacity-50 disabled:cursor-not-allowed transition"
                 >
                   {loading ? "Logging in..." : "Login"}
                 </button>
@@ -124,7 +130,7 @@ const Login = () => {
                   Don’t have an account yet?{" "}
                   <Link
                     to="/signup"
-                    className="font-medium text-teal-700 hover:text-red-600"
+                    className="font-semibold text-teal-700 hover:text-red-600"
                   >
                     Sign Up
                   </Link>

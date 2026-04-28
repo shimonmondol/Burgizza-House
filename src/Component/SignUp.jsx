@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router";
-import { useState } from "react";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../firebase/firebase";
 import { ToastContainer, toast } from "react-toastify";
-import { updateProfile } from "firebase/auth";
+import LoginImage from "../Images/Login.jpg"; //
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -16,6 +15,7 @@ const SignUp = () => {
   const handleSignup = async (e) => {
     e.preventDefault();
     setLoading(true);
+
     try {
       const userCredential = await createUserWithEmailAndPassword(
         auth,
@@ -23,19 +23,26 @@ const SignUp = () => {
         password,
       );
 
-      // Update displayName
       await updateProfile(userCredential.user, {
         displayName: fname,
       });
 
       toast.success("SignUp Successful", {
         position: "top-center",
-        autoClose: 4000,
+        autoClose: 3000,
         onClose: () => navigate("/login"),
       });
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
         toast.error("Already have an account, Please login.", {
+          position: "top-center",
+        });
+      } else if (error.code === "auth/weak-password") {
+        toast.error("Password should be at least 6 characters.", {
+          position: "top-center",
+        });
+      } else if (error.code === "auth/invalid-email") {
+        toast.error("Invalid email format.", {
           position: "top-center",
         });
       } else {
@@ -44,22 +51,29 @@ const SignUp = () => {
         });
       }
     } finally {
-      setLoading(false); // ✅ Always stop loading
+      setLoading(false);
     }
   };
 
   return (
     <>
       <ToastContainer />
-      <section className="min-h-screen bg-teal-900 flex items-center justify-center px-4 py-8">
-        <div className="w-full max-w-md">
-          <div className="text-center mb-6 text-2xl sm:text-3xl font-semibold text-white">
+      <section
+        className="relative min-h-screen flex items-center justify-center px-4 py-8 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${LoginImage})` }}
+      >
+        <div className="absolute inset-0 bg-black/30"></div>
+        <div className="relative z-10 w-full max-w-md">
+          <Link
+            to="/"
+            className="block text-center mb-6 text-2xl sm:text-3xl font-bold text-white"
+          >
             Burgizza-House
-          </div>
+          </Link>
 
-          <div className="w-full bg-white rounded-xl shadow-lg">
+          <div className="w-full bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl">
             <div className="p-5 sm:p-8 space-y-5">
-              <h1 className="text-xl sm:text-2xl font-bold text-black">
+              <h1 className="text-xl sm:text-2xl font-bold text-black text-center">
                 Create an account
               </h1>
 
@@ -71,8 +85,10 @@ const SignUp = () => {
                   >
                     Your Name
                   </label>
+
                   <input
                     onChange={(e) => setFname(e.target.value)}
+                    value={fname}
                     type="text"
                     id="name"
                     className="w-full bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-700 p-2.5"
@@ -88,11 +104,12 @@ const SignUp = () => {
                   >
                     Your Email
                   </label>
+
                   <input
                     onChange={(e) => setEmail(e.target.value)}
+                    value={email}
                     type="email"
                     id="email"
-                    value={email}
                     className="w-full bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-700 p-2.5"
                     placeholder="Name@gmail.com"
                     required
@@ -106,8 +123,10 @@ const SignUp = () => {
                   >
                     Password
                   </label>
+
                   <input
                     onChange={(e) => setPassword(e.target.value)}
+                    value={password}
                     type="password"
                     id="password"
                     placeholder="••••••••"
@@ -119,7 +138,7 @@ const SignUp = () => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full text-white bg-black hover:bg-gray-800 cursor-pointer font-medium rounded-lg text-sm px-5 py-3 text-center disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full text-white bg-black hover:bg-gray-800 cursor-pointer font-medium rounded-lg text-sm px-5 py-3 text-center disabled:opacity-50 disabled:cursor-not-allowed transition"
                 >
                   {loading ? "Signing Up..." : "Sign Up"}
                 </button>
@@ -128,7 +147,7 @@ const SignUp = () => {
                   Already have an account?{" "}
                   <Link
                     to="/login"
-                    className="font-medium text-teal-700 hover:text-red-600"
+                    className="font-semibold text-teal-700 hover:text-red-600"
                   >
                     Login
                   </Link>

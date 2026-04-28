@@ -35,8 +35,8 @@ const Navbar = () => {
             to="/"
             className="flex items-center text-xl font-semibold text-white"
           >
-            <img className="h-5 w-5 rounded-sm" src={logo} alt="Logo" />
-            <h1 className="ml-2 text-white">Burgizza House</h1>
+            <img className="h-5 w-5 mt-1 rounded-sm" src={logo} alt="Logo" />
+            <h1 className="ml-2 text-white text-2xl">Burgizza House</h1>
           </Link>
           {/* Desktop Menu */}
           <div className="hidden grid-flow-col gap-8 font-semibold text-white md:grid">
@@ -55,7 +55,7 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Login */}
-          <div className="relative hidden md:block">
+          <div className="relative hidden md:block mr-12">
             {userName ? (
               <div
                 className="cursor-pointer rounded-sm bg-blue-500 px-3 py-2 text-sm font-medium text-white"
