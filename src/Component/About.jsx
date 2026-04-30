@@ -5,25 +5,25 @@ import Sandwich from "../Images/Sandwich.jpg";
 const About = () => {
   return (
     <div>
-      <div>
-        <div className="w-[1000px] mx-auto lg:px-0 mt-24 mb-12">
+      <div className="bg-black/80">
+        <div className="max-w-5xl mx-auto lg:px-0 pt-24 pb-12">
           {/* Responsive Card Grid */}
           <div className="flex flex-wrap gap-10">
             {/* Card 1 */}
-            <div className="p-4 bg-[#ffffff] text-black rounded-lg shadow text-sm w-full sm:w-[300px]">
+            <div className="p-4 bg-gray-800 rounded-lg shadow text-sm w-full sm:w-[300px]">
               <img
                 className="rounded-md max-h-40 w-full object-cover"
                 src={Burger}
                 alt="Burger"
               />
-              <h1 className="text-black text-xl font-semibold mt-2">
+              <h1 className="text-white text-xl font-semibold mt-2">
                 Burger King
               </h1>
-              <p className="text-black mt-3 text-justify">
+              <p className="text-white mt-3 text-justify">
                 A burger is a popular fast food made with a cooked patty usually
                 chicken, or plant based placed inside a sliced bun.
               </p>
-              <h1 className="text-black text-xl font-medium mt-2">
+              <h1 className="text-white text-xl font-medium mt-2">
                 Price : 100$
               </h1>
               <button
@@ -75,7 +75,7 @@ const About = () => {
                 Order Now
               </button>
             </div>
-            <p className="text-justify text-xl lg:text-base">
+            <p className="text-justify text-white text-xl lg:text-base mr-10">
               Burgizza House is a modern fast-food restaurant offering a
               delicious fusion of Burgers, Pizzas, Sandwiches, and a variety of
               quick-serve meals. Known for its fresh ingredients and bold

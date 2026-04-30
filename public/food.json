@@ -1,0 +1,170 @@
+[
+  {
+    "id": 1,
+    "category": "Burger",
+    "name": "Crispy Chicken Burger",
+    "price": 350,
+    "image": "/src/FoodImage/1.jpg",
+    "description": "Crispy chicken with cheese and fresh lettuce"
+  },
+  {
+    "id": 2,
+    "category": "Burger",
+    "name": "Chicken Burger",
+    "price": 300,
+    "image": "/src/FoodImage/2.jpg",
+    "description": "Juicy chicken fillet with fresh veggies"
+  },
+  {
+    "id": 3,
+    "category": "Burger",
+    "name": "Chicken Cheese Burger",
+    "price": 420,
+    "image": "/src/FoodImage/3.jpg",
+    "description": "Chicken patty with extra cheese and sauce"
+  },
+  {
+    "id": 4,
+    "category": "Burger",
+    "name": "BBQ Chicken Burger",
+    "price": 380,
+    "image": "/src/FoodImage/4.jpg",
+    "description": "Grilled chicken with smoky BBQ flavor"
+  },
+  {
+    "id": 5,
+    "category": "Burger",
+    "name": "Veggie Burger",
+    "price": 250,
+    "image": "/src/FoodImage/5.jpg",
+    "description": "Healthy veggie patty with fresh greens"
+  },
+  {
+    "id": 6,
+    "category": "Pizza",
+    "name": "Margherita Pizza",
+    "price": 500,
+    "image": "/src/FoodImage/6.jpg",
+    "description": "Classic pizza with cheese and tomato sauce"
+  },
+  {
+    "id": 7,
+    "category": "Pizza",
+    "name": "Chicken Pepperoni Pizza",
+    "price": 700,
+    "image": "/src/FoodImage/7.jpg",
+    "description": "Loaded with chicken pepperoni and cheese"
+  },
+  {
+    "id": 8,
+    "category": "Pizza",
+    "name": "Chicken Supreme Pizza",
+    "price": 750,
+    "image": "/src/FoodImage/8.jpg",
+    "description": "Chicken, veggies, and cheese on crust"
+  },
+  {
+    "id": 9,
+    "category": "Pizza",
+    "name": "BBQ Chicken Pizza",
+    "price": 720,
+    "image": "/src/FoodImage/9.jpg",
+    "description": "Grilled chicken with BBQ sauce topping"
+  },
+  {
+    "id": 10,
+    "category": "Pizza",
+    "name": "Veggie Delight Pizza",
+    "price": 550,
+    "image": "/src/FoodImage/10.jpg",
+    "description": "Fresh vegetables with melted cheese"
+  },
+  {
+    "id": 11,
+    "category": "Sandwich",
+    "name": "Club Sandwich",
+    "price": 280,
+    "image": "/src/FoodImage/11.jpg",
+    "description": "Triple-layer sandwich with chicken and egg"
+  },
+  {
+    "id": 12,
+    "category": "Sandwich",
+    "name": "Chicken Sandwich",
+    "price": 250,
+    "image": "/src/FoodImage/12.jpg",
+    "description": "Grilled chicken with lettuce and sauce"
+  },
+  {
+    "id": 13,
+    "category": "Sandwich",
+    "name": "Grilled Cheese Sandwich",
+    "price": 200,
+    "image": "/src/FoodImage/13.jpg",
+    "description": "Toasted bread with melted cheese"
+  },
+  {
+    "id": 14,
+    "category": "Sandwich",
+    "name": "Tuna Sandwich",
+    "price": 270,
+    "image": "/src/FoodImage/14.jpg",
+    "description": "Tuna mix with mayo and veggies"
+  },
+  {
+    "id": 15,
+    "category": "Sandwich",
+    "name": "Veg Sandwich",
+    "price": 180,
+    "image": "/src/FoodImage/15.jpg",
+    "description": "Fresh veggies with chutney in bread"
+  },
+  {
+    "id": 16,
+    "category": "Juice",
+    "name": "Raw Mango Juice",
+    "price": 80,
+    "image": "/src/FoodImage/16.jpg",
+    "description": "Sweet and creamy fresh mango juice"
+  },
+  {
+    "id": 17,
+    "category": "Juice",
+    "name": "Pineapple Juice",
+    "price": 90,
+    "image": "/src/FoodImage/17.jpg",
+    "description": "Refreshing pineapple juice with great flavor"
+  },
+  {
+    "id": 18,
+    "category": "Juice",
+    "name": "Orange Juice",
+    "price": 100,
+    "image": "/src/FoodImage/18.jpg",
+    "description": "Fresh and natural orange juice"
+  },
+  {
+    "id": 19,
+    "category": "Juice",
+    "name": "Lemon Juice",
+    "price": 60,
+    "image": "/src/FoodImage/19.jpg",
+    "description": "Refreshing lemon Juice with mint"
+  },
+  {
+    "id": 20,
+    "category": "Juice",
+    "name": "Dragon Juice",
+    "price": 120,
+    "image": "/src/FoodImage/20.jpg",
+    "description": "Colorful dragon fruit juice with a fresh taste"
+  },
+  {
+    "id": 21,
+    "category": "Juice",
+    "name": "Watermelon Juice",
+    "price": 150,
+    "image": "/src/FoodImage/21.jpg",
+    "description": "Fresh and refreshing watermelon juice"
+  }
+]

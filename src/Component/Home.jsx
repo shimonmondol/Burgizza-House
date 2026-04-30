@@ -14,13 +14,13 @@ const Home = () => {
           <h1 className="text-white text-4xl md:text-6xl font-bold">
             Welcome to Burgizza House 🍔
           </h1>
-          <p className="mt-6 mr-6 leading-6">
+          <p className="mt-6 leading-6">
             Burgizza House is a casual fast-food concept that combines Burger, Pizza <br /> & Sandwich flavors into one unique item, offering tasty &
             Delicious
           </p>
           <button
             type="button"
-            className="bg-rose-600 mt-4 mr-4 px-6 py-2 font-medium rounded text-white cursor-pointer"
+            className="bg-rose-600 mt-4 px-6 py-2 font-medium rounded text-white cursor-pointer"
           >
             Order Now
           </button>

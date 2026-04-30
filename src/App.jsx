@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router";
 import Layout from "./Component/Layout";
 import Home from "./Component/Home";
-import Product from "./Component/Product ";
+import Menu from "./Component/Menu";
 import Login from "./Component/Login";
 import About from "./Component/About";
 import Contact from "./Component/Contact";
@@ -12,8 +12,8 @@ function App() {
     <Routes>
       <Route element={<Layout />}>
         <Route path="/" element={<Home />} />
+        <Route path="/menu" element={<Menu />} />
         <Route path="/about" element={<About />} />
-        <Route path="/product" element={<Product />} />
         <Route path="/contact" element={<Contact />} />
       </Route>
       <Route path="/login" element={<Login />} />

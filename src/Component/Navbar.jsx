@@ -3,6 +3,7 @@ import { Link } from "react-router";
 import { auth } from "../firebase/firebase";
 import { signOut } from "firebase/auth";
 import logo from "../Images/Logo.jpg";
+import { FaShoppingCart } from "react-icons/fa";
 
 const Navbar = () => {
   const [userName, setUserName] = useState("");
@@ -28,9 +29,9 @@ const Navbar = () => {
   };
 
   return (
-    <div className="fixed top-0 z-50 w-full bg-gray-800">
+    <div className="fixed top-0 z-50 w-full bg-teal-900">
       <nav>
-        <div className="mx-auto flex items-center justify-between p-4 lg:w-[1060px]">
+        <div className="max-w-6xl mx-auto flex items-center justify-between p-4 pl-14">
           <Link
             to="/"
             className="flex items-center text-xl font-semibold text-white"
@@ -43,48 +44,48 @@ const Navbar = () => {
             <Link className="hover:text-rose-500" to="/">
               Home
             </Link>
+            <Link className="hover:text-rose-500" to="/menu">
+              Menu
+            </Link>
             <Link className="hover:text-rose-500" to="/about">
               About
-            </Link>
-            <Link className="hover:text-rose-500" to="/product">
-              Product
             </Link>
             <Link className="hover:text-rose-500" to="/contact">
               Contact
             </Link>
           </div>
+          <div className="flex gap-6">
+            <FaShoppingCart className="text-white text-xl cursor-pointer mt-2" />
+            <div className="relative hidden md:block mr-12">
+              {userName ? (
+                <div
+                  className="cursor-pointer rounded-sm bg-blue-500 px-3 py-2 text-sm font-medium text-white"
+                  onMouseEnter={() => setMenuopen(true)}
+                  onMouseLeave={() => setMenuopen(false)}
+                >
+                  {userName}
 
-          {/* Desktop Login */}
-          <div className="relative hidden md:block mr-12">
-            {userName ? (
-              <div
-                className="cursor-pointer rounded-sm bg-blue-500 px-3 py-2 text-sm font-medium text-white"
-                onMouseEnter={() => setMenuopen(true)}
-                onMouseLeave={() => setMenuopen(false)}
-              >
-                {userName}
-
-                {menuopen && (
-                  <div className="absolute right-0 mt-2 rounded bg-white text-black shadow">
-                    <button
-                      onClick={handleLogout}
-                      className="w-full cursor-pointer rounded bg-red-600 px-4 py-2 text-center text-white"
-                    >
-                      Logout
-                    </button>
-                  </div>
-                )}
-              </div>
-            ) : (
-              <Link
-                to="/login"
-                className="flex rounded-sm bg-blue-500 px-3 py-2 text-sm font-medium text-white hover:bg-red-500"
-              >
-                Login
-              </Link>
-            )}
+                  {menuopen && (
+                    <div className="absolute right-0 mt-2 rounded bg-white text-black shadow">
+                      <button
+                        onClick={handleLogout}
+                        className="w-full cursor-pointer rounded bg-red-600 px-4 py-2 text-center text-white"
+                      >
+                        Logout
+                      </button>
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <Link
+                  to="/login"
+                  className="flex rounded-sm bg-blue-500 px-3 py-2 text-sm font-medium text-white hover:bg-red-500"
+                >
+                  Login
+                </Link>
+              )}
+            </div>
           </div>
-
           {/* Mobile Button */}
           <button
             onClick={() => setMobileMenu(!mobileMenu)}
@@ -104,7 +105,6 @@ const Navbar = () => {
             >
               Home
             </Link>
-
             <Link
               onClick={() => setMobileMenu(false)}
               className="block hover:text-rose-500"
@@ -112,7 +112,6 @@ const Navbar = () => {
             >
               About
             </Link>
-
             <Link
               onClick={() => setMobileMenu(false)}
               className="block hover:text-rose-500"
