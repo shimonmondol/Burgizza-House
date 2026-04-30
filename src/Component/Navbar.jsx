@@ -108,6 +108,13 @@ const Navbar = () => {
             <Link
               onClick={() => setMobileMenu(false)}
               className="block hover:text-rose-500"
+              to="/menu"
+            >
+              Menu
+            </Link>
+            <Link
+              onClick={() => setMobileMenu(false)}
+              className="block hover:text-rose-500"
               to="/about"
             >
               About
@@ -115,19 +122,10 @@ const Navbar = () => {
             <Link
               onClick={() => setMobileMenu(false)}
               className="block hover:text-rose-500"
-              to="/product"
-            >
-              Product
-            </Link>
-
-            <Link
-              onClick={() => setMobileMenu(false)}
-              className="block hover:text-rose-500"
               to="/contact"
             >
               Contact
             </Link>
-
             {userName ? (
               <button
                 onClick={handleLogout}
