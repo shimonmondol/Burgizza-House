@@ -5,7 +5,7 @@ import { signOut } from "firebase/auth";
 import logo from "../Images/Logo.jpg";
 import { FaShoppingCart } from "react-icons/fa";
 
-const Navbar = () => {
+const Navbar = ({ cartCount }) => {
   const [userName, setUserName] = useState("");
   const [menuopen, setMenuopen] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
@@ -14,7 +14,6 @@ const Navbar = () => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setUserName(user ? user.displayName || "User" : "");
     });
-
     return () => unsubscribe();
   }, []);
 
@@ -39,7 +38,6 @@ const Navbar = () => {
             <img className="h-5 w-5 mt-1 rounded-sm" src={logo} alt="Logo" />
             <h1 className="ml-2 text-white text-2xl">Burgizza House</h1>
           </Link>
-          {/* Desktop Menu */}
           <div className="hidden grid-flow-col gap-8 font-semibold text-white md:grid">
             <Link className="hover:text-rose-500" to="/">
               Home
@@ -55,7 +53,16 @@ const Navbar = () => {
             </Link>
           </div>
           <div className="flex gap-6">
-            <FaShoppingCart className="text-white text-xl cursor-pointer mt-2" />
+            {userName && (
+              <Link to="/cart" className="relative mt-2">
+                <FaShoppingCart className="text-white text-xl cursor-pointer" />
+                {cartCount > 0 && (
+                  <span className="absolute -top-3 -right-3 bg-orange-500 text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">
+                    {cartCount}
+                  </span>
+                )}
+              </Link>
+            )}
             <div className="relative hidden md:block mr-12">
               {userName ? (
                 <div
@@ -86,7 +93,6 @@ const Navbar = () => {
               )}
             </div>
           </div>
-          {/* Mobile Button */}
           <button
             onClick={() => setMobileMenu(!mobileMenu)}
             className="text-2xl font-bold text-white md:hidden cursor-pointer"
@@ -94,8 +100,6 @@ const Navbar = () => {
             {mobileMenu ? "✕" : "☰"}
           </button>
         </div>
-
-        {/* Mobile Menu */}
         {mobileMenu && (
           <div className="space-y-3 bg-gray-500 px-6 pb-4 font-semibold text-black md:hidden">
             <Link
